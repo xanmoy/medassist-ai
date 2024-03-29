@@ -6,7 +6,15 @@ from langchain_community.llms import CTransformers
 from langchain.chains import RetrievalQA
 import chainlit as cl
 
+
+
+
 DB_FAISS_PATH = 'vectorstore/db_faiss'
+
+# # Set allow_dangerous_deserialization to True when loading the pickle file
+# with open('vectorstore\db_faiss\index.pkl', 'rb') as f:
+#     your_data = pickle.load(f, allow_dangerous_deserialization=True)
+
 
 custom_prompt_template = """Use the following pieces of information to answer the user's question.
 If you don't know the answer, just say that you don't know, don't try to make up an answer.
@@ -26,6 +34,19 @@ def set_custom_prompt():
                             input_variables=['context', 'question'])
     return prompt
 
+
+
+#Loading the model
+def load_llm():
+    # Load the locally downloaded model here
+    llm = CTransformers(
+        model = "llama-2-7b-chat.ggmlv3.q8_0.bin",
+        model_type="llama",
+        max_new_tokens = 512,
+        temperature = 0.5
+    )
+    return llm
+
 #Retrieval QA Chain
 def retrieval_qa_chain(llm, prompt, db):
     qa_chain = RetrievalQA.from_chain_type(llm=llm,
@@ -36,16 +57,6 @@ def retrieval_qa_chain(llm, prompt, db):
                                        )
     return qa_chain
 
-#Loading the model
-def load_llm():
-    # Load the locally downloaded model here
-    llm = CTransformers(
-        model = "TheBloke/Llama-2-7B-Chat-GGML",
-        model_type="llama",
-        max_new_tokens = 512,
-        temperature = 0.5
-    )
-    return llm
 
 #QA Model Function
 def qa_bot():
@@ -68,15 +79,15 @@ def final_result(query):
 @cl.on_chat_start
 async def start():
     chain = qa_bot()
-    msg = cl.Message(content="Starting the bot...")
+    msg = cl.Message(content="Welcome to The MediNova AI...")
     await msg.send()
-    msg.content = "Hi, Welcome to Medical Bot. What is your query?"
+    msg.content = "Hi, I am MediNova. What is your query?"
     await msg.update()
 
     cl.user_session.set("chain", chain)
 
 @cl.on_message
-async def main(message: cl.Message):
+async def main(message): #: cl.Message
     chain = cl.user_session.get("chain") 
     cb = cl.AsyncLangchainCallbackHandler(
         stream_final_answer=True, answer_prefix_tokens=["FINAL", "ANSWER"]
@@ -93,3 +104,4 @@ async def main(message: cl.Message):
 
     await cl.Message(content=answer).send()
 
+new_db = FAISS.load_local("faiss_index", embeddings,allow_dangerous_deserialization=True)

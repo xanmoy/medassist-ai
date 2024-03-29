@@ -47,6 +47,8 @@ Before you can start using the Llama2 Medical Bot, make sure you have the follow
     source venv/bin/activate  # On Windows, use: venv\Scripts\activate
     ```
 
+
+
 3. Install the required Python packages:
 
     ```bash
@@ -57,6 +59,17 @@ Before you can start using the Llama2 Medical Bot, make sure you have the follow
 
 5. Set up the necessary paths and configurations in your project, including the `DB_FAISS_PATH` variable and other configurations as per your needs.
 
+6. create vectorstore:
+
+        ```bash
+    conda activate langchain
+    python ingest.py
+    ```
+7. Run Chainlit
+   ```
+   chainlit run .\model.py -w
+
+   ```
 ## Getting Started
 
 To get started with the Llama2 MediNova AI, you need to:
