@@ -32,8 +32,8 @@ Before you can start using the Llama2 Medical Bot, make sure you have the follow
 1. Clone this repository to your local machine.
 
     ```bash
-    git clone https://github.com/your-username/langchain-medical-bot.git
-    cd langchain-medical-bot
+    git clone https://github.com/your-username/medinova.git
+    cd medinova
     ```
 
 2. Create a Python virtual environment (optional but recommended):
