@@ -1,8 +1,8 @@
 
 
-# Llama2 Med Assist AI
+# Llama2 MediNova AI
 
-The Med Assist AI is a powerful tool designed to provide medical information by answering user queries using state-of-the-art language models and vector stores. This README will guide you through the setup and usage of the Llama2 Medical Bot.
+The MediNova AI is a powerful tool designed to provide medical information by answering user queries using state-of-the-art language models and vector stores. This README will guide you through the setup and usage of the Llama2 Medical Bot.
 
 ## Table of Contents
 
@@ -55,7 +55,7 @@ Before you can start using the Llama2 Medical Bot, make sure you have the follow
 
 ## Getting Started
 
-To get started with the Llama2 Medical Bot, you need to:
+To get started with the Llama2 MediNova AI, you need to:
 
 1. Set up your environment and install the required packages as described in the Installation section.
 
@@ -67,7 +67,7 @@ To get started with the Llama2 Medical Bot, you need to:
 
 ## Usage
 
-The Llama2 Medical Bot can be used for answering medical-related queries. To use the bot, you can follow these steps:
+The Llama2 MediNova AI can be used for answering medical-related queries. To use the bot, you can follow these steps:
 
 1. Start the bot by running your application or using the provided Python script.
 
@@ -81,7 +81,7 @@ The Llama2 Medical Bot can be used for answering medical-related queries. To use
 
 ## Contributing
 
-Contributions to the Llama2 Medical Bot are welcome! If you'd like to contribute to the project, please follow these steps:
+Contributions to The Llama2 MediNova AI are welcome! If you'd like to contribute to the project, please follow these steps:
 
 1. Fork the repository to your own GitHub account.
 
